@@ -746,7 +746,14 @@ function module.loadAnimScript(originalScript)
 	Humanoid.GettingUp:connect(onGettingUp)
 	Humanoid.FreeFalling:connect(onFreeFall)
 	Humanoid.FallingDown:connect(onFallingDown)
-	Humanoid.Seated:connect(onSeated)
+	Humanoid.StateChanged:Connect(function(_, new)
+		if (new == Enum.HumanoidStateType.Seated) then
+			for _, v in next, Humanoid:GetPlayingAnimationTracks() do
+				v:Stop()
+			end 
+			onSeated()
+		end
+	end)
 	Humanoid.PlatformStanding:connect(onPlatformStanding)
 	Humanoid.Swimming:connect(onSwimming)
 
