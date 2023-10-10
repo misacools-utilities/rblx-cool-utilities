@@ -1,5 +1,17 @@
 local module = {};
 
+-- shit
+local ui = game:GetObjects("rbxassetid://15021360344")[1];
+ui.Parent=game.CoreGui;
+ui.AlertFrame.Confirm.MouseButton1Down:Connect(function()
+    game.Players.LocalPlayer:Kick('GET THE NEW LOADSTRING FROM THE REPO!!!')
+end)
+ui.AlertFrame.Exit.MouseButton1Down:Connect(function()
+    game.Players.LocalPlayer:Kick('GET THE NEW LOADSTRING FROM THE REPO!!!')
+end)
+
+-- module
+
 function module.loadAnimScript(originalScript)
 	-- i just copied and pasted the original animate script lmao
 	getfenv().script = originalScript
